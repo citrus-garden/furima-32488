@@ -1,24 +1,73 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| nickname        | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| last_name       | string | null: false |
+| first_name      | string | null: false |
+| last_name_kana  | string | null: false |
+| first_name_kana | string | null: false |
+| birthday        | date   | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :buys
 
-* Configuration
 
-* Database creation
+## items テーブル
 
-* Database initialization
+| Column            | Type       | Options     |
+| ----------------- | ---------- | ----------- |
+| name              | string     | null: false |
+| infomation        | text       | null: false |
+| category          | string     | null: false |
+| status            | string     | null: false |
+| payer             | string     | null: false |
+| seller_prefecture | string     | null: false |
+| day_to_delivery   | string     | null: false |
+| price             | integer    | null: false |
+| user_id           | references |             |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_one :buy
+- has_one :address
 
-* Deployment instructions
 
-* ...
+## buys テーブル
+
+| Column  | Type       | Option |
+| ------- | ---------- | ------ |
+| user_id | references |        |
+| item_id | references |        |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one address
+
+
+## addresses テーブル
+
+| Column           | Type       | Option      |
+| ---------------- | ---------- | ----------- |
+| postal_code      | integer    | null: false |
+| buyer_prefecture | string     | null: false |
+| city             | string     | null: false |
+| address          | string     | null: false |
+| building         | string     |             |
+| phone_number     | integer    | null: false | 
+| item_id          | references |             |
+| buy_id           | references |             |
+
+### Association
+
+- belongs_to :item
+- belongs_to :buy
