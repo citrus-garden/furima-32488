@@ -21,17 +21,18 @@
 
 ## items テーブル
 
-| Column            | Type       | Options     |
-| ----------------- | ---------- | ----------- |
-| name              | string     | null: false |
-| infomation        | text       | null: false |
-| category          | string     | null: false |
-| status            | string     | null: false |
-| payer             | string     | null: false |
-| seller_prefecture | string     | null: false |
 | day_to_delivery   | string     | null: false |
-| price             | integer    | null: false |
-| user_id           | references |             |
+| Column          | Type               | Options     |
+| --------------- | ------------------ | ----------- |
+| name            | string             | null: false |
+| infomation      | text               | null: false |
+| category        | category_id        | null: false |
+| status          | status_id          | null: false |
+| payer           | payer_id           | null: false |
+| prefecture      | prefecture_id      | null: false |
+| day_to_delivery | day_to_delivery_id | null: false |
+| price           | integer            | null: false |
+| user_id         | references         |             |
 
 ### Association
 
@@ -51,21 +52,21 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one address
+- has_one :address
 
 
 ## addresses テーブル
 
-| Column           | Type       | Option      |
-| ---------------- | ---------- | ----------- |
-| postal_code      | integer    | null: false |
-| buyer_prefecture | string     | null: false |
-| city             | string     | null: false |
-| address          | string     | null: false |
-| building         | string     |             |
-| phone_number     | integer    | null: false | 
-| item_id          | references |             |
-| buy_id           | references |             |
+| Column       | Type          | Option      |
+| ------------ | ------------- | ----------- |
+| postal_code  | string        | null: false |
+| prefecture   | prefecture_id | null: false |
+| city         | string        | null: false |
+| address      | string        | null: false |
+| building     | string        |             |
+| phone_number | string        | null: false | 
+| item_id      | references    |             |
+| buy_id       | references    |             |
 
 ### Association
 
