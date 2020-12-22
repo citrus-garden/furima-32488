@@ -31,7 +31,7 @@
 | prefecture_id      | integer    | null: false |
 | day_to_delivery_id | integer    | null: false |
 | price              | integer    | null: false |
-| user_id            | references |             |
+| user               | references | foreign_key: true |
 
 ### Association
 
@@ -44,8 +44,8 @@
 
 | Column  | Type       | Option            |
 | ------- | ---------- | ----------------- |
-| user_id | references | foreign_key: true |
-| item_id | references | foreign_key: true |
+| user    | references | foreign_key: true |
+| item    | references | foreign_key: true |
 
 ### Association
 
@@ -64,7 +64,7 @@
 | address         | string     | null: false |
 | building        | string     |             |
 | phone_number    | string     | null: false | 
-| buy_id          | references | foreign_key: true |
+| buy             | references | foreign_key: true |
 
 ### Association
 
