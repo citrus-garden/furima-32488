@@ -21,7 +21,6 @@
 
 ## items テーブル
 
-| day_to_delivery   | string     | null: false |
 | Column          | Type               | Options     |
 | --------------- | ------------------ | ----------- |
 | name            | string             | null: false |
