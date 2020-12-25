@@ -6,7 +6,7 @@ class Item < ApplicationRecord
     validates :satus_id, numericality: { other_than: 1 }
     validates :payer_id, numericality: { other_than: 1 }
     validates :prefecture_id, numericality: { other_than: 1 }
-    validates :day_to_delivery_id	
+    validates :day_to_delivery_id, numericality: { other_than: 1 }
     validates :price
   end
 
@@ -16,4 +16,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :satus
   belongs_to_active_hash :payer
   belongs_to_active_hash :prefecture
+  belongs_to_active_hash :day_to_delivery
 end
