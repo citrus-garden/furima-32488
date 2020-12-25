@@ -9,4 +9,6 @@ class Item < ApplicationRecord
     validates :day_to_delivery_id	
     validates :price
   end
+
+  belongs_to :user
 end
