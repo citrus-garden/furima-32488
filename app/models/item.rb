@@ -4,7 +4,7 @@ class Item < ApplicationRecord
     validates :infomation
     validates :category_id, numericality: { other_than: 1 }
     validates :satus_id, numericality: { other_than: 1 }
-    validates :payer_id
+    validates :payer_id, numericality: { other_than: 1 }
     validates :prefecture_id
     validates :day_to_delivery_id	
     validates :price
@@ -14,4 +14,5 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
   belongs_to_active_hash :satus
+  belongs_to_active_hash :payer
 end
