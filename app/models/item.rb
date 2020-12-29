@@ -3,7 +3,7 @@ class Item < ApplicationRecord
     validates :name
     validates :infomation
     validates :category_id, numericality: { other_than: 1 }
-    validates :satus_id, numericality: { other_than: 1 }
+    validates :status_id, numericality: { other_than: 1 }
     validates :payer_id, numericality: { other_than: 1 }
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :day_to_delivery_id, numericality: { other_than: 1 }
@@ -15,7 +15,7 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
-  belongs_to :satus
+  belongs_to :status
   belongs_to :payer
   belongs_to :prefecture
   belongs_to :day_to_delivery
