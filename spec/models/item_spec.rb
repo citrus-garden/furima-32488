@@ -31,10 +31,22 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Infomation can't be blank")
       end
 
+      it "category_idが空だと出品できないこと" do
+        @item.category_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank", "Category is not a number")
+      end
+
       it "category_idが1だと出品できないこと" do
         @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
+
+      it "status_idが空だと出品できないこと" do
+        @item.status_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status can't be blank", "Status is not a number")
       end
 
       it "status_idが1だと出品できないこと" do
@@ -43,16 +55,34 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
 
+      it "payer_idが空だと出品できないこと" do
+        @item.payer_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Payer can't be blank", "Payer is not a number")
+      end
+
       it "payer_idが1だと出品できないこと" do
         @item.payer_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Payer must be other than 1")
       end
 
+      it "prefectuer_idが空だと出品できないこと" do
+        @item.prefecture_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank", "Prefecture is not a number")
+      end
+
       it "prefecture_idが1だと出品できないこと" do
         @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+      end
+
+      it "day_to_delivery_idが空だと出品できないこと" do
+        @item.day_to_delivery_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Day to delivery can't be blank", "Day to delivery is not a number")
       end
 
       it "day_to_delivery_idが1だと出品できないこと" do
