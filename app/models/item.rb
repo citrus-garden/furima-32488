@@ -3,12 +3,14 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :infomation
-    validates :category_id, numericality: { other_than: 1 }
-    validates :status_id, numericality: { other_than: 1 }
-    validates :payer_id, numericality: { other_than: 1 }
-    validates :prefecture_id, numericality: { other_than: 1 }
-    validates :day_to_delivery_id, numericality: { other_than: 1 }
     validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+    with_options numericality: { other_than: 1 } do
+        validates :category_id
+        validates :status_id
+        validates :payer_id
+        validates :prefecture_id
+        validates :day_to_delivery_id
+    end
   end
 
   belongs_to :user
