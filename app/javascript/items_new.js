@@ -10,4 +10,4 @@ function priceCalc() {
     }
 }
 
-setInterval(priceCalc, 10)
+window.addEventListener('input', priceCalc)
