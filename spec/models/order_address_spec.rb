@@ -3,7 +3,12 @@ require 'rails_helper'
 RSpec.describe OrderAddress, type: :model do
   describe "商品購入機能" do
     before do
+      @user = FactoryBot.create(:user)
+      @item = FactoryBot.create(:item)
       @order_address = FactoryBot.build(:order_address)
+      @order_address.user_id = @user.id
+      @order_address.item_id = @item.id
+      sleep(0.05)
     end
 
     context "購入できる場合" do
