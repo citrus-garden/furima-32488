@@ -9,6 +9,8 @@ class OrderAddress
         validates :city
         validates :address
         validates :phone_number, length: { maximum: 11 }, format: { with: /\A[0-9]+\z/ }
+        validates :user_id
+        validates :item_id
     end
     
     def save
