@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
     end
 
     def item_order_id
-        if item.order.present?
+        if @item.order.present?
             redirect_to root_path
         end
     end
